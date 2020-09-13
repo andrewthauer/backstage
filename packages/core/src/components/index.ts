@@ -27,6 +27,7 @@ export * from './OAuthRequestDialog';
 export * from './Progress';
 export * from './ProgressBars';
 export * from './SimpleStepper';
+export * from './ShadowFrame';
 export * from './Status';
 export * from './StructuredMetadataTable';
 export * from './SupportButton';
