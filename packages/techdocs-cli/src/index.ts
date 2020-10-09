@@ -13,10 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 import { spawn, ChildProcess } from 'child_process';
 import program from 'commander';
 import { version } from '../package.json';
 import path from 'path';
+import { createMkDocsConfig } from './lib/config/create';
 import HTTPServer from './lib/httpServer';
 import openBrowser from 'react-dev-utils/openBrowser';
 
@@ -48,10 +50,12 @@ const run = (name: string, args: string[] = []): ChildProcess => {
   return childProcess;
 };
 
-const runMkdocsServer = (options?: {
+async function runMkdocsServer(options?: {
   devAddr: string;
-}): Promise<ChildProcess> => {
+}): Promise<ChildProcess> {
   const devAddr = options?.devAddr ?? '0.0.0.0:8000';
+
+  await createMkDocsConfig({ directory: process.env.PWD ?? '' });
 
   return new Promise(resolve => {
     const childProcess = run('docker', [
@@ -60,7 +64,7 @@ const runMkdocsServer = (options?: {
       '-w',
       '/content',
       '-v',
-      `${process.cwd()}:/content`,
+      `${process.cwd()}:/content:ro`,
       '-p',
       '8000:8000',
       'spotify/techdocs',
@@ -78,15 +82,17 @@ const runMkdocsServer = (options?: {
       }
     });
   });
-};
+}
 
 const main = (argv: string[]) => {
   program.name('techdocs-cli').version(version);
 
+  program.option('-c, --config', 'The config file to use');
+
   program
     .command('serve:mkdocs')
     .description('Serve a documentation project locally')
-    .action(() => {
+    .action(async () => {
       runMkdocsServer().then(() => {
         openBrowser('http://localhost:8000');
       });

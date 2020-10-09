@@ -1,0 +1,19 @@
+site_name: {{siteName}}
+site_description: {{siteDescription}}
+site_url: {{siteUrl}}
+repo_url: {{repoUrl}}
+
+{{#if googleAnalytics}}
+google_analytics:
+  {{#each googleAnalytics}}
+  - {{this}}
+  {{/each}}
+{{/if}}
+
+plugins:
+  - techdocs-core
+{{#if plugins}}
+  {{#each plugins}}
+  - {{this}}
+  {{/each}}
+{{/if}}

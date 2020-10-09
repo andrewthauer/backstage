@@ -42,6 +42,17 @@ techdocs:
   requestUrl: http://localhost:7000/api/techdocs
   generators:
     techdocs: 'docker'
+  mkdocs:
+    config:
+      # template:
+      # Default provided from `@backstage/techdocs-cli
+      data:
+        siteDescription: Generated with TechDocs
+        plugins:
+          - search
+          - awesome-pages
+          # - git-revision-date-localized:
+          #     type: timeago
 
 sentry:
   organization: spotify
