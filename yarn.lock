@@ -5646,12 +5646,12 @@
   dependencies:
     "@types/unist" "*"
 
-"@types/helmet@^0.0.48":
-  version "0.0.48"
-  resolved "https://registry.npmjs.org/@types/helmet/-/helmet-0.0.48.tgz#e754399d2f4672ba63962e8490efd3edd31d9799"
-  integrity sha512-C7MpnvSDrunS1q2Oy1VWCY7CDWHozqSnM8P4tFeRTuzwqni+PYOjEredwcqWG+kLpYcgLsgcY3orHB54gbx2Jw==
+"@types/helmet@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.npmjs.org/@types/helmet/-/helmet-4.0.0.tgz#af7af46de26abe368b85360769ae9938bfb2318a"
+  integrity sha512-ONIn/nSNQA57yRge3oaMQESef/6QhoeX7llWeDli0UZIfz8TQMkfNPTXA8VnnyeA1WUjG2pGqdjEIueYonMdfQ==
   dependencies:
-    "@types/express" "*"
+    helmet "*"
 
 "@types/history@*":
   version "4.7.5"
@@ -13859,10 +13859,10 @@ headers-utils@^1.2.0:
   resolved "https://registry.npmjs.org/headers-utils/-/headers-utils-1.2.0.tgz#5e10d1bc9d2bccf789547afca5b991a3167241e8"
   integrity sha512-4/BMXcWrJErw7JpM87gF8MNEXcIMLzepYZjNRv/P9ctgupl2Ywa3u1PgHtNhSRq84bHH9Ndlkdy7bSi+bZ9I9A==
 
-helmet@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.npmjs.org/helmet/-/helmet-4.0.0.tgz#34c187894ed001834f997c688f2b2df19846b193"
-  integrity sha512-HyoRKKHhWhO6+EBfgRLkuZR4/+NXc1nJB7x0bWwW89i9eoPciK0qUqyZNOA/zowpgrW9C4+J5toqMkZrpBOlkg==
+helmet@*, helmet@^4.0.0:
+  version "4.3.1"
+  resolved "https://registry.npmjs.org/helmet/-/helmet-4.3.1.tgz#e374e2fb3f8da045d0233f13299b1fde6e59e4e1"
+  integrity sha512-WsafDyKsIexB0+pUNkq3rL1rB5GVAghR68TP8ssM9DPEMzfBiluEQlVzJ/FEj6Vq2Ag3CNuxf7aYMjXrN0X49Q==
 
 hex-color-regex@^1.1.0:
   version "1.1.0"
