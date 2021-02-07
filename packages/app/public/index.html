@@ -52,7 +52,8 @@
     <% if (app.googleAnalyticsTrackingId && typeof app.googleAnalyticsTrackingId
     === 'string') { %>
     <script
-      async
+      aysnc
+      nonce="{SERVER-GENERATED-NONCE}"
       src="https://www.googletagmanager.com/gtag/js?id=<%= app.googleAnalyticsTrackingId %>"
     ></script>
     <script>

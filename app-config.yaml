@@ -16,6 +16,15 @@ backend:
     credentials: true
   csp:
     connect-src: ["'self'", 'http:', 'https:']
+    # script-src:
+    #   - "'self'"
+    #   - 'NONCE'
+    #   - "https://www.googletagmanager.com"
+    #   - "https://www.google-analytics.com"
+    # img-src:
+    #   - "'self'"
+    #   - "data:"
+    #   - 'www.googletagmanager.com'
   reading:
     allow:
       - host: example.com

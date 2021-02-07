@@ -17,8 +17,9 @@
 import { Config } from '@backstage/config';
 import compression from 'compression';
 import cors from 'cors';
-import express, { Router } from 'express';
-import helmet, { HelmetOptions } from 'helmet';
+import crypto from 'crypto';
+import express, { Request, Response, Router } from 'express';
+import helmet from 'helmet';
 import * as http from 'http';
 import stoppable from 'stoppable';
 import { Logger } from 'winston';
@@ -39,6 +40,11 @@ import {
   readHttpsSettings,
 } from './config';
 import { createHttpServer, createHttpsServer } from './hostFactory';
+
+// Helmet no longer exports HelmetOptions, see https://github.com/helmetjs/helmet/issues/271
+type HelmetOptions = Parameters<typeof helmet>[0];
+type CspDirectiveValueFunction = (req: Request, res: Response) => string;
+type CspDirectiveValue = string | CspDirectiveValueFunction | undefined;
 
 export const DEFAULT_PORT = 7000;
 // '' is express default, which listens to all interfaces
@@ -156,6 +162,12 @@ export class ServiceBuilderImpl implements ServiceBuilder {
       helmetOptions,
     } = this.getOptions();
 
+    app.use((_req, res, next) => {
+      // Sets a Nonce to be used by CSP policy
+      res.locals.cspNonce = crypto.randomBytes(20).toString('base64');
+      next();
+    });
+
     app.use(helmet(helmetOptions));
     if (corsOptions) {
       app.use(cors(corsOptions));
@@ -211,7 +223,7 @@ export class ServiceBuilderImpl implements ServiceBuilder {
       httpsSettings: this.httpsSettings,
       helmetOptions: {
         contentSecurityPolicy: {
-          directives: applyCspDirectives(this.cspOptions),
+          directives: applyCspDirectives(this.cspOptions) as any,
         },
       },
     };
@@ -220,18 +232,27 @@ export class ServiceBuilderImpl implements ServiceBuilder {
 
 export function applyCspDirectives(
   directives: Record<string, string[] | false> | undefined,
-): CspOptions | undefined {
-  const result: CspOptions = { ...DEFAULT_CSP };
+): Record<string, CspDirectiveValue[]> | undefined {
+  const result: Record<string, CspDirectiveValue[]> = { ...DEFAULT_CSP };
 
   if (directives) {
     for (const [key, value] of Object.entries(directives)) {
       if (value === false) {
         delete result[key];
       } else {
-        result[key] = value;
+        result[key] = mapCspDirectiveSource(value);
       }
     }
   }
 
   return result;
+}
+
+function mapCspDirectiveSource(directive: string[]) {
+  return directive.map(s => {
+    if (s === 'NONCE') {
+      return (_req: Request, res: Response) => `'nonce-${res.locals.cspNonce}'`;
+    }
+    return s;
+  });
 }

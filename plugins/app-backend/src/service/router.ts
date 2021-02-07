@@ -15,7 +15,9 @@
  */
 
 import { resolve as resolvePath } from 'path';
-import express from 'express';
+import staticTransform from 'connect-static-transform';
+import express, { Request, Response } from 'express';
+import mung from 'express-mung';
 import Router from 'express-promise-router';
 import { Logger } from 'winston';
 import { notFoundHandler, resolvePackagePath } from '@backstage/backend-common';
@@ -29,6 +31,16 @@ export interface RouterOptions {
   appPackageName: string;
   staticFallbackHandler?: express.Handler;
 }
+
+// const injectCspNonce = staticTransform({
+//   // root: __dirname,
+//   match: /\*/,
+//   transform: (path, text, send) => {
+//     return body.replace('{SERVER-GENERATED-NONCE}', res.locals.cspNonce);
+//     // send(text.toUpperCase(), { 'Content-Type': 'text/plain' });
+//     send;
+//   },
+// });
 
 export async function createRouter(
   options: RouterOptions,
@@ -67,7 +79,20 @@ export async function createRouter(
   staticRouter.use(notFoundHandler());
 
   router.use('/static', staticRouter);
-  router.use(express.static(appDistDir));
+  router.use(express.static(appDistDir, {}));
+
+  router.use(
+    mung.write((chunk: any, _encoding: any, _req: Request, res: Response) => {
+      const body: string = chunk.toString();
+      const newBody = body.replace(
+        /{SERVER-GENERATED-NONCE}/,
+        res.locals.cspNonce,
+      );
+      // logger.info(newBody);
+      return newBody;
+    }),
+  );
+
   router.get('/*', (_req, res) => {
     res.sendFile(resolvePath(appDistDir, 'index.html'));
   });
