@@ -13,7 +13,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-export { EntityContext, useEntity, useEntityFromUrl } from './useEntity';
-export { useEntityCompoundName } from './useEntityCompoundName';
-export { useRelatedEntities } from './useRelatedEntities';
-export { isStarredEntity, useStarredEntities } from './useStarredEntities';
+
+import { Entity, UserEntity } from '@backstage/catalog-model';
+
+export type EntityFilterType = 'field' | 'owned' | 'starred';
+
+export type EntityFilter = {
+  type: EntityFilterType;
+  field?: string; // e.g. spec.type
+  values: string[] | undefined;
+};
+
+export type EntityListState = {
+  loading: boolean;
+  error?: Error;
+  entities: Entity[];
+  entityTypes: string[];
+  ownUser: Entity | undefined;
+  starredEntities: string[]; // name of entity
+  filters: Record<string, EntityFilter>;
+  matchingEntities: Entity[];
+  availableTags: string[];
+};

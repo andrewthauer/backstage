@@ -13,7 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-export { EntityContext, useEntity, useEntityFromUrl } from './useEntity';
-export { useEntityCompoundName } from './useEntityCompoundName';
-export { useRelatedEntities } from './useRelatedEntities';
-export { isStarredEntity, useStarredEntities } from './useStarredEntities';
+
+import React, { useReducer } from 'react';
+import { entityListContext } from './context';
+import { entityListInitialState, entityReducer } from './reducer';
+
+export const EntityListProvider = ({
+  children,
+}: {
+  children?: React.ReactNode;
+}) => {
+  const [state, dispatch] = useReducer(entityReducer, entityListInitialState);
+
+  return (
+    <entityListContext.Provider value={{ state, dispatch }}>
+      {children}
+    </entityListContext.Provider>
+  );
+};

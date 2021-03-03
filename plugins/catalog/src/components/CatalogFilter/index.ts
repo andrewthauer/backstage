@@ -15,3 +15,6 @@
  */
 
 export { CatalogFilter } from './CatalogFilter';
+export { EntityFilterGroupBar } from './EntityFilterGroupBar';
+export { FilterGroupItem } from './FilterGroupItem';
+export { filterGroups } from './filterGroups';

@@ -13,7 +13,37 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-export { EntityContext, useEntity, useEntityFromUrl } from './useEntity';
-export { useEntityCompoundName } from './useEntityCompoundName';
-export { useRelatedEntities } from './useRelatedEntities';
-export { isStarredEntity, useStarredEntities } from './useStarredEntities';
+
+import SettingsIcon from '@material-ui/icons/Settings';
+import StarIcon from '@material-ui/icons/Star';
+
+import { ButtonGroup } from './EntityFilterGroupBar';
+
+const orgName = '[Org Name]';
+
+export const filterGroups: ButtonGroup[] = [
+  {
+    name: 'Personal',
+    items: [
+      {
+        id: 'owned',
+        label: 'Owned',
+        icon: SettingsIcon,
+      },
+      {
+        id: 'starred',
+        label: 'Starred',
+        icon: StarIcon,
+      },
+    ],
+  },
+  {
+    name: orgName,
+    items: [
+      {
+        id: 'all',
+        label: 'All',
+      },
+    ],
+  },
+];
