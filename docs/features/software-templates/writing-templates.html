@@ -189,6 +189,12 @@ this:</p>
       <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>,
       <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Last name"</span>
     },
+    <span class="hljs-attr">"nicknames"</span>:{
+      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"array"</span>,
+      <span class="hljs-attr">"items"</span>: {
+        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>
+      }
+    },
     <span class="hljs-attr">"telephone"</span>: {
       <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>,
       <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Telephone"</span>,
@@ -207,6 +213,11 @@ this:</p>
   <span class="hljs-attr">"lastName"</span>: {
     <span class="hljs-attr">"ui:emptyValue"</span>: <span class="hljs-string">""</span>,
     <span class="hljs-attr">"ui:autocomplete"</span>: <span class="hljs-string">"given-name"</span>
+  },
+  <span class="hljs-attr">"nicknames"</span>: {
+    <span class="hljs-attr">"ui:options"</span>:{
+      <span class="hljs-attr">"orderable"</span>: <span class="hljs-literal">false</span>
+    }
   },
   <span class="hljs-attr">"telephone"</span>: {
     <span class="hljs-attr">"ui:options"</span>: {
@@ -246,6 +257,12 @@ this:</p>
           <span class="hljs-attr">title:</span> <span class="hljs-string">Last</span> <span class="hljs-string">name</span>
           <span class="hljs-attr">ui:emptyValue:</span> <span class="hljs-string">''</span>
           <span class="hljs-attr">ui:autocomplete:</span> <span class="hljs-string">given-name</span>
+        <span class="hljs-attr">nicknames:</span>
+          <span class="hljs-attr">type:</span> <span class="hljs-string">array</span>
+          <span class="hljs-attr">items:</span>
+            <span class="hljs-attr">type:</span> <span class="hljs-string">string</span>
+          <span class="hljs-attr">ui:options:</span>
+            <span class="hljs-attr">orderable:</span> <span class="hljs-literal">false</span>
         <span class="hljs-attr">telephone:</span>
           <span class="hljs-attr">type:</span> <span class="hljs-string">string</span>
           <span class="hljs-attr">title:</span> <span class="hljs-string">Telephone</span>
@@ -325,14 +342,17 @@ linking to the created repository.</p>
 <code>yaml</code> together. All the form inputs from the <code>parameters</code> section, when passed
 to the steps will be available by using the template syntax
 <code>{{ parameters.something }}</code>. This is great for passing the values from the form
-into different steps and reusing these input variables.</p>
+into different steps and reusing these input variables. To pass arrays or
+objects use the syntax <code>{{ json paramaters.something }}</code> where
+<code>paramaters.something</code> is of type <code>object</code> or <code>array</code> in the <code>jsonSchema</code>, such
+as the <code>nicknames</code> parameter in the previous example.</p>
 <p>As you can see above in the <code>Outputs</code> section, <code>actions</code> and <code>steps</code> can also
 output things. So you can grab that output by using
 <code>steps.$stepId.output.$property</code>.</p>
 <p>You can read more about all the <code>inputs</code> and <code>outputs</code> defined in the actions in
 code part of the <code>JSONSchema</code> or you can read more about our built in ones
 <a href="/docs/features/software-templates/builtin-actions">here</a>.</p>
-</span></div></article></div><div class="docLastUpdate"><em>Last updated on 6/3/2021</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/features/software-templates/adding-templates"><span class="arrow-prev">← </span><span>Adding your own Templates</span></a><a class="docs-next button" href="/docs/features/software-templates/builtin-actions"><span>Builtin actions</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><div class="footer-title"><a href="/"><h2 class="footerLogo"></h2></a></div><div><h5>Docs</h5><a href="/docs/overview/what-is-backstage">What is Backstage?</a><a href="/docs/getting-started/">Getting started</a><a href="/docs/features/software-catalog/software-catalog-overview">Service Catalog</a><a href="/docs/plugins/create-a-plugin">Create a Plugin</a><a href="/docs/dls/design">Designing for Backstage</a></div><div><h5>Community</h5><a href="https://discord.gg/MUpMjP2">Support chatroom</a><a href="https://github.com/backstage/backstage/blob/master/CONTRIBUTING.md">Contributing</a><a href="https://mailchi.mp/spotify/backstage-community">Subscribe to our newsletter</a><a href="https://www.cncf.io/sandbox-projects/">CNCF Sandbox</a></div><div><h5>More</h5><a href="https://spotify.github.io/">Open Source @ Spotify</a><a href="https://engineering.atspotify.com/">Spotify Engineering Blog</a><a href="https://developer.spotify.com/">Spotify for Developers</a><a href="https://github.com/backstage/backstage">GitHub</a><a class="github-button" href="https://github.com/backstage/backstage" data-icon="octicon-star" data-count-href="/backstage/backstage/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a><div class="social"><a href="https://twitter.com/SpotifyEng" class="twitter-follow-button">Follow @SpotifyEng</a></div></div></section><p style="text-align:center"><a href="https://spotify.github.io">Made with ❤️  at Spotify</a></p><p class="copyright">Copyright © 2021 Backstage Project Authors. All rights reserved. The Linux Foundation has registered trademarks and uses trademarks. For a list of trademarks of The Linux Foundation, please see our Trademark Usage page: https://www.linuxfoundation.org/trademark-usage</p></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script><script>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 6/7/2021</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/features/software-templates/adding-templates"><span class="arrow-prev">← </span><span>Adding your own Templates</span></a><a class="docs-next button" href="/docs/features/software-templates/builtin-actions"><span>Builtin actions</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><div class="footer-title"><a href="/"><h2 class="footerLogo"></h2></a></div><div><h5>Docs</h5><a href="/docs/overview/what-is-backstage">What is Backstage?</a><a href="/docs/getting-started/">Getting started</a><a href="/docs/features/software-catalog/software-catalog-overview">Service Catalog</a><a href="/docs/plugins/create-a-plugin">Create a Plugin</a><a href="/docs/dls/design">Designing for Backstage</a></div><div><h5>Community</h5><a href="https://discord.gg/MUpMjP2">Support chatroom</a><a href="https://github.com/backstage/backstage/blob/master/CONTRIBUTING.md">Contributing</a><a href="https://mailchi.mp/spotify/backstage-community">Subscribe to our newsletter</a><a href="https://www.cncf.io/sandbox-projects/">CNCF Sandbox</a></div><div><h5>More</h5><a href="https://spotify.github.io/">Open Source @ Spotify</a><a href="https://engineering.atspotify.com/">Spotify Engineering Blog</a><a href="https://developer.spotify.com/">Spotify for Developers</a><a href="https://github.com/backstage/backstage">GitHub</a><a class="github-button" href="https://github.com/backstage/backstage" data-icon="octicon-star" data-count-href="/backstage/backstage/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a><div class="social"><a href="https://twitter.com/SpotifyEng" class="twitter-follow-button">Follow @SpotifyEng</a></div></div></section><p style="text-align:center"><a href="https://spotify.github.io">Made with ❤️ at Spotify</a></p><p class="copyright">Copyright © 2021 Backstage Project Authors. All rights reserved. The Linux Foundation has registered trademarks and uses trademarks. For a list of trademarks of The Linux Foundation, please see our Trademark Usage page: https://www.linuxfoundation.org/trademark-usage</p></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script><script>
                 document.addEventListener('keyup', function(e) {
                   if (e.target !== document.body) {
                     return;
