@@ -62,12 +62,13 @@
                 };
               }
             });
-        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/backstage/backstage/edit/master/docs/features/techdocs/creating-and-publishing.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 id="__docusaurus" class="postHeaderTitle">Creating and publishing your docs</h1></header><article><div><span><p>This section will guide you through:</p>
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/backstage/backstage/edit/master/docs/features/techdocs/creating-and-publishing.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 id="__docusaurus" class="postHeaderTitle">Creating and publishing your docs</h1></header><article><div><span><p>This section will guide you through how to:</p>
 <ul>
 <li><a href="#create-a-basic-documentation-setup">Create a basic documentation setup</a>
 <ul>
+<li><a href="#use-any-software-template">Use any software template</a></li>
 <li><a href="#use-the-documentation-template">Use the documentation template</a></li>
-<li><a href="#manually-add-documentation-setup-to-already-existing-repository">Manually add documentation setup to already existing repository</a></li>
+<li><a href="#enable-documentation-for-an-already-existing-entity">Enable documentation for an already existing entity</a></li>
 </ul></li>
 <li><a href="#writing-and-previewing-your-documentation">Writing and previewing your documentation</a></li>
 </ul>
@@ -79,23 +80,37 @@
 <h2><a class="anchor" aria-hidden="true" id="create-a-basic-documentation-setup"></a><a href="#create-a-basic-documentation-setup" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Create a basic documentation setup</h2>
 <p>If you have an existing repository that you'd like to add documentation to, skip
 to the
-<a href="#manually-add-documentation-setup-to-already-existing-repository">Manually add documentation setup</a>
-section below. Otherwise, continue reading to start a documentation repo from
-scratch.</p>
+<a href="#enable-documentation-for-an-already-existing-entity">Enable documentation for an already existing entity setup</a>
+section below. Otherwise, continue reading to create a new software entity
+including documentation from scratch.</p>
+<h3><a class="anchor" aria-hidden="true" id="use-any-software-template"></a><a href="#use-any-software-template" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Use any software template</h3>
+<p>TechDocs is built on top of the
+<a href="https://www.docslikecode.com/about/">docs like code approach</a>. This, in short,
+means that you should keep documentation close to the code.</p>
+<p>Your Backstage app has a set of software templates added by default. All of
+these software templates include everything you need to get your TechDocs site
+up and running and to start writing your documentation.</p>
+<p>If you have created software templates that do not include documentation by
+default, we highly recommend you to set that up. Follow our how-to guide
+<a href="/docs/features/techdocs/how-to-guides#how-to-add-documentation-setup-to-your-software-templates">How to add documentation setup to your software templates</a>
+to get started.</p>
 <h3><a class="anchor" aria-hidden="true" id="use-the-documentation-template"></a><a href="#use-the-documentation-template" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Use the documentation template</h3>
-<p>Your working Backstage instance should by default have a documentation template
-added. If not, copy the catalog locations from the
+<p>There could be <em>some</em> situations where you don't want to keep your docs close to
+your code, but still want to publish documentation - for example, an onboarding
+tutorial. For this use case, we have put together a documentation template. Your
+Backstage instance should by default have a documentation template added. If
+not, copy the catalog locations from the
 <a href="https://github.com/backstage/backstage/blob/master/packages/create-app/templates/default-app/app-config.yaml.hbs">create-app template</a>
-to add the documentation template. The template creates a component with only
-TechDocs configuration and default markdown files as below mentioned in manual
-documentation setup, and is otherwise empty.</p>
+to add the documentation template. The template creates a component with
+<strong>only</strong> TechDocs configuration and default markdown files, and is otherwise
+empty.</p>
 <p><img src="../../assets/techdocs/documentation-template.png" alt="Documentation Template"></p>
 <p>Create an entity from the documentation template and you will get the needed
 setup for free.</p>
-<h3><a class="anchor" aria-hidden="true" id="manually-add-documentation-setup-to-already-existing-repository"></a><a href="#manually-add-documentation-setup-to-already-existing-repository" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Manually add documentation setup to already existing repository</h3>
+<h3><a class="anchor" aria-hidden="true" id="enable-documentation-for-an-already-existing-entity"></a><a href="#enable-documentation-for-an-already-existing-entity" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Enable documentation for an already existing entity</h3>
 <p>Prerequisites:</p>
 <ul>
-<li>An existing component
+<li>An existing entity
 <a href="/docs/features/software-catalog/software-catalog-overview#adding-components-to-the-catalog">registered in backstage</a>
 (e.g. via a <code>catalog-info.yaml</code> file).</li>
 </ul>
@@ -118,10 +133,10 @@ content:</p>
 <p>The
 <a href="/docs/features/software-catalog/well-known-annotations#backstageiotechdocs-ref"><code>backstage.io/techdocs-ref</code> annotation</a>
 is used by TechDocs to download the documentation source files for generating an
-Entity's TechDocs site.</p>
-<p>Create a <code>/docs</code> folder in the root of the project with at least an <code>index.md</code>
-file. <em>(If you add more markdown files, make sure to update the nav in the
-mkdocs.yml file to get a proper navigation for your documentation.)</em></p>
+entity's TechDocs site.</p>
+<p>Create a <code>/docs</code> folder in the root of your repository with at least an
+<code>index.md</code> file in it. <em>(If you add more markdown files, make sure to update the
+nav in the mkdocs.yml file to get a proper navigation for your documentation.)</em></p>
 <blockquote>
 <p>Note - Although <code>docs</code> is a popular directory name for storing documentation,
 it can be renamed to something else and can be configured by <code>mkdocs.yml</code>. See
@@ -135,14 +150,15 @@ This is a basic example of documentation.
 <p>Commit your changes, open a pull request and merge. You will now get your
 updated documentation next time you run Backstage!</p>
 <h2><a class="anchor" aria-hidden="true" id="writing-and-previewing-your-documentation"></a><a href="#writing-and-previewing-your-documentation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Writing and previewing your documentation</h2>
-<p>Using the <code>techdocs-cli</code> you can preview your docs inside a local Backstage
-instance and get live reload on changes. This is useful when you want to preview
-your documentation while writing.</p>
+<p>Using the <a href="https://github.com/backstage/techdocs-cli">techdocs-cli</a> you can
+preview your docs inside a local Backstage instance and get live reload on
+changes. This is useful when you want to preview your documentation while
+writing.</p>
 <p>To do this you can run:</p>
 <pre><code class="hljs css language-bash"><span class="hljs-built_in">cd</span> /path/to/docs-repository/
 npx @techdocs/cli serve
 </code></pre>
-</span></div></article></div><div class="docLastUpdate"><em>Last updated on 10/17/2021</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/features/techdocs/architecture"><span class="arrow-prev">← </span><span class="function-name-prevnext">TechDocs Architecture</span></a><a class="docs-next button" href="/docs/features/techdocs/configuration"><span class="function-name-prevnext">TechDocs Configuration Options</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#prerequisites">Prerequisites</a></li><li><a href="#create-a-basic-documentation-setup">Create a basic documentation setup</a><ul class="toc-headings"><li><a href="#use-the-documentation-template">Use the documentation template</a></li><li><a href="#manually-add-documentation-setup-to-already-existing-repository">Manually add documentation setup to already existing repository</a></li></ul></li><li><a href="#writing-and-previewing-your-documentation">Writing and previewing your documentation</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><div class="footer-title"><a href="/"><h2 class="footerLogo"></h2></a></div><div><h5>Docs</h5><a href="/docs/overview/what-is-backstage">What is Backstage?</a><a href="/docs/getting-started/">Getting started</a><a href="/docs/features/software-catalog/software-catalog-overview">Software Catalog</a><a href="/docs/plugins/create-a-plugin">Create a Plugin</a><a href="/docs/dls/design">Designing for Backstage</a></div><div><h5>Community</h5><a href="https://discord.gg/MUpMjP2">Support chatroom</a><a href="https://github.com/backstage/backstage/blob/master/CONTRIBUTING.md">Contributing</a><a href="https://backstage.spotify.com">Adopting</a><a href="https://github.com/backstage/community">Community Sessions</a><a href="https://mailchi.mp/spotify/backstage-community">Subscribe to our newsletter</a><a href="https://www.cncf.io/sandbox-projects/">CNCF Sandbox</a></div><div><h5>More</h5><a href="https://spotify.github.io/">Open Source @ Spotify</a><a href="https://engineering.atspotify.com/">Spotify Engineering Blog</a><a href="https://developer.spotify.com/">Spotify for Developers</a><a href="https://github.com/backstage/backstage">GitHub</a><a class="github-button" href="https://github.com/backstage/backstage" data-icon="octicon-star" data-count-href="/backstage/backstage/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a><div class="social"><a href="https://twitter.com/SpotifyEng" class="twitter-follow-button">Follow @SpotifyEng</a></div></div></section><p style="text-align:center"><a href="https://spotify.github.io">Made with ❤️ at Spotify</a></p><p class="copyright">Copyright © 2021 Backstage Project Authors. All rights reserved. The Linux Foundation has registered trademarks and uses trademarks. For a list of trademarks of The Linux Foundation, please see our Trademark Usage page: https://www.linuxfoundation.org/trademark-usage</p></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script><script>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 10/19/2021</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/features/techdocs/architecture"><span class="arrow-prev">← </span><span class="function-name-prevnext">TechDocs Architecture</span></a><a class="docs-next button" href="/docs/features/techdocs/configuration"><span class="function-name-prevnext">TechDocs Configuration Options</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#prerequisites">Prerequisites</a></li><li><a href="#create-a-basic-documentation-setup">Create a basic documentation setup</a><ul class="toc-headings"><li><a href="#use-any-software-template">Use any software template</a></li><li><a href="#use-the-documentation-template">Use the documentation template</a></li><li><a href="#enable-documentation-for-an-already-existing-entity">Enable documentation for an already existing entity</a></li></ul></li><li><a href="#writing-and-previewing-your-documentation">Writing and previewing your documentation</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><div class="footer-title"><a href="/"><h2 class="footerLogo"></h2></a></div><div><h5>Docs</h5><a href="/docs/overview/what-is-backstage">What is Backstage?</a><a href="/docs/getting-started/">Getting started</a><a href="/docs/features/software-catalog/software-catalog-overview">Software Catalog</a><a href="/docs/plugins/create-a-plugin">Create a Plugin</a><a href="/docs/dls/design">Designing for Backstage</a></div><div><h5>Community</h5><a href="https://discord.gg/MUpMjP2">Support chatroom</a><a href="https://github.com/backstage/backstage/blob/master/CONTRIBUTING.md">Contributing</a><a href="https://backstage.spotify.com">Adopting</a><a href="https://github.com/backstage/community">Community Sessions</a><a href="https://mailchi.mp/spotify/backstage-community">Subscribe to our newsletter</a><a href="https://www.cncf.io/sandbox-projects/">CNCF Sandbox</a></div><div><h5>More</h5><a href="https://spotify.github.io/">Open Source @ Spotify</a><a href="https://engineering.atspotify.com/">Spotify Engineering Blog</a><a href="https://developer.spotify.com/">Spotify for Developers</a><a href="https://github.com/backstage/backstage">GitHub</a><a class="github-button" href="https://github.com/backstage/backstage" data-icon="octicon-star" data-count-href="/backstage/backstage/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a><div class="social"><a href="https://twitter.com/SpotifyEng" class="twitter-follow-button">Follow @SpotifyEng</a></div></div></section><p style="text-align:center"><a href="https://spotify.github.io">Made with ❤️ at Spotify</a></p><p class="copyright">Copyright © 2021 Backstage Project Authors. All rights reserved. The Linux Foundation has registered trademarks and uses trademarks. For a list of trademarks of The Linux Foundation, please see our Trademark Usage page: https://www.linuxfoundation.org/trademark-usage</p></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script><script>
                 document.addEventListener('keyup', function(e) {
                   if (e.target !== document.body) {
                     return;
