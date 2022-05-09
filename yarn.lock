@@ -19737,6 +19737,11 @@ pidtree@^0.5.0:
   resolved "https://registry.npmjs.org/pidtree/-/pidtree-0.5.0.tgz#ad5fbc1de78b8a5f99d6fbdd4f6e4eee21d1aca1"
   integrity sha512-9nxspIM7OpZuhBxPg73Zvyq7j1QMPMPsGKTqRc2XOaFQauDvoNz9fM1Wdkjmeo7l9GXOZiRs97sPkuayl39wjA==
 
+pidtree@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.npmjs.org/pidtree/-/pidtree-0.5.0.tgz#ad5fbc1de78b8a5f99d6fbdd4f6e4eee21d1aca1"
+  integrity sha512-9nxspIM7OpZuhBxPg73Zvyq7j1QMPMPsGKTqRc2XOaFQauDvoNz9fM1Wdkjmeo7l9GXOZiRs97sPkuayl39wjA==
+
 pify@^2.0.0, pify@^2.2.0, pify@^2.3.0:
   version "2.3.0"
   resolved "https://registry.npmjs.org/pify/-/pify-2.3.0.tgz#ed141a6ac043a849ea588498e7dca8b15330e90c"
