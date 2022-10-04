@@ -29,11 +29,16 @@ import { findCodeOwnerByTarget } from './lib';
 const ALLOWED_KINDS = ['API', 'Component', 'Domain', 'Resource', 'System'];
 const ALLOWED_LOCATION_TYPES = ['url'];
 
+type CodeOwnerProcessorConfig = {
+  path?: string;
+};
+
 /** @public */
 export class CodeOwnersProcessor implements CatalogProcessor {
   private readonly integrations: ScmIntegrationRegistry;
   private readonly logger: Logger;
   private readonly reader: UrlReader;
+  private readonly config: CodeOwnerProcessorConfig;
 
   static fromConfig(
     config: Config,
@@ -41,9 +46,14 @@ export class CodeOwnersProcessor implements CatalogProcessor {
   ) {
     const integrations = ScmIntegrations.fromConfig(config);
 
+    const codeownersConfig = config.getOptional<CodeOwnerProcessorConfig>(
+      'catalog.processors.codeowners.path',
+    );
+
     return new CodeOwnersProcessor({
       ...options,
       integrations,
+      codeownersConfig,
     });
   }
 
@@ -51,6 +61,7 @@ export class CodeOwnersProcessor implements CatalogProcessor {
     integrations: ScmIntegrationRegistry;
     logger: Logger;
     reader: UrlReader;
+    codeownersConfig: CodeOwnerProcessorConfig;
   }) {
     this.integrations = options.integrations;
     this.logger = options.logger;

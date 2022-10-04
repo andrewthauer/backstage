@@ -105,5 +105,22 @@ export interface Config {
         allow: Array<string>;
       }>;
     }>;
+
+    /**
+     * Optional configuration for catalog processors.
+     */
+    processors?: {
+      /**
+       * Optional configuration for the catalog CodeownersProcessor.
+       */
+      codeowners?: {
+        /**
+         * The path to look for the CODEOWNERS file in.
+         *
+         * @note This overrides the default lookup schema which is based on the SCM provider.
+         */
+        path?: string;
+      };
+    };
   };
 }
