@@ -20,8 +20,12 @@
 export type ExploreTool = {
   title: string;
   description?: string;
-  url: string;
+  url?: string;
   image: string;
   tags?: string[];
   lifecycle?: string;
+  links?: {
+    title: string;
+    url: string;
+  }[];
 };

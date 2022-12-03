@@ -24,9 +24,13 @@ export const exampleTools: ExploreTool[] = [
     title: 'New Relic',
     description:
       'Observability platform built to help engineers create and monitor their software',
-    url: '/newrelic',
+    // url: '/newrelic',
     image: 'https://i.imgur.com/L37ikrX.jpg',
     tags: ['newrelic', 'performance', 'monitoring', 'errors', 'alerting'],
+    links: [
+      { title: 'Staging', url: 'https://newrelic.com' },
+      { title: 'Production', url: 'https://newrelic.com' },
+    ],
   },
   {
     title: 'CircleCI',

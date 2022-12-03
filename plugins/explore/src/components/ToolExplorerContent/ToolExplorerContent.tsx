@@ -28,6 +28,7 @@ import {
 } from '@backstage/core-components';
 import { useApi } from '@backstage/core-plugin-api';
 import { exploreApiRef } from '../../api';
+import { Chip } from '@material-ui/core';
 
 const Body = () => {
   const exploreApi = useApi(exploreApiRef);
@@ -58,12 +59,24 @@ const Body = () => {
     );
   }
 
+  const tags = [
+    ...tools.reduce((acc, tool) => {
+      tool?.tags?.forEach(t => acc.add(t));
+      return acc;
+    }, new Set<string>()),
+  ].sort();
+
   return (
-    <ItemCardGrid>
-      {tools.map((tool, index) => (
-        <ToolCard key={index} card={tool} />
+    <>
+      {tags.map((tag, index) => (
+        <Chip key={index} label={tag} />
       ))}
-    </ItemCardGrid>
+      <ItemCardGrid>
+        {tools.map((tool, index) => (
+          <ToolCard key={index} card={tool} />
+        ))}
+      </ItemCardGrid>
+    </>
   );
 };
 

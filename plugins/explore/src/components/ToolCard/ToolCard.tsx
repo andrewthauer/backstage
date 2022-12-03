@@ -23,11 +23,14 @@ import {
   CardContent,
   CardMedia,
   Chip,
+  Collapse,
+  IconButton,
   makeStyles,
   Typography,
 } from '@material-ui/core';
 import { Button } from '@backstage/core-components';
 import classNames from 'classnames';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import React from 'react';
 
 // TODO: Align styling between Domain and ToolCard
@@ -62,7 +65,13 @@ type Props = {
 export const ToolCard = ({ card, objectFit }: Props) => {
   const classes = useStyles();
 
-  const { title, description, url, image, lifecycle, tags } = card;
+  const { title, description, url, image, lifecycle, tags, links } = card;
+
+  const [expanded, setExpanded] = React.useState(false);
+
+  const handleExpandClick = () => {
+    setExpanded(!expanded);
+  };
 
   return (
     <Card key={title}>
@@ -97,10 +106,38 @@ export const ToolCard = ({ card, objectFit }: Props) => {
         )}
       </CardContent>
       <CardActions>
-        <Button color="primary" to={url} disabled={!url}>
-          Explore
-        </Button>
+        {url && (
+          <Button color="primary" to={url} disabled={!url}>
+            Explore
+          </Button>
+        )}
+        {links && links.length > 0 && (
+          <IconButton
+            // className={classes(classes.expand, {
+            //   [classes.expandOpen]: expanded,
+            // })}
+            onClick={handleExpandClick}
+            aria-expanded={expanded}
+            aria-label="show more"
+          >
+            <ExpandMoreIcon />
+          </IconButton>
+        )}
       </CardActions>
+      <Collapse in={expanded} timeout="auto" unmountOnExit>
+        <CardContent>
+          {links?.map((link, idx) => (
+            <Button
+              key={idx}
+              color="primary"
+              to={link.url}
+              disabled={!link.url}
+            >
+              {link.title}
+            </Button>
+          ))}
+        </CardContent>
+      </Collapse>
     </Card>
   );
 };
